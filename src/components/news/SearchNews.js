@@ -5,9 +5,12 @@ const SearchNews = ({ searchNews }) => {
 	const [searchInput, setSearchInput] = useState("");
 
 	return (
-		<div>
-			<Button onClick={() => searchNews(searchInput)}>Search</Button>
-			<input onChange={(e) => setSearchInput(e.target.value)}></input>
+		<div className="search-input">
+			<button onClick={() => searchNews(searchInput)}>Search</button>
+			<input
+				type="input"
+				onChange={(e) => setSearchInput(e.target.value)}
+			></input>
 		</div>
 	);
 };

@@ -6,9 +6,10 @@ const EditNewsForm = ({ onSubmitEditNews }) => {
 	const [text, setText] = useState("");
 
 	return (
-		<div>
+		<div className="mt-5">
 			<Form onSubmit={() => onSubmitEditNews(title, text)}>
 				<Form.Control
+					className="mb-3 text-center"
 					type="text"
 					value={title}
 					onChange={(e) => setTitle(e.target.value)}
@@ -16,6 +17,8 @@ const EditNewsForm = ({ onSubmitEditNews }) => {
 					as="textarea"
 				/>
 				<Form.Control
+					className="mb-3 text-center"
+					rows="8"
 					type="textarea"
 					value={text}
 					onChange={(e) => setText(e.target.value)}

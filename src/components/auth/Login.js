@@ -35,7 +35,7 @@ const Login = () => {
 
 	return (
 		<>
-			<Container className="mt-5 ">
+			<Container className="mt-5">
 				<Row className="d-flex justify-content-center">
 					<Col md="6">
 						<Card>
@@ -68,7 +68,7 @@ const Login = () => {
 							</Card.Body>
 						</Card>
 						<div className="w-100 text-center mt-2">
-							Don't have an account? Go <Link to="/signup">Sing Up</Link>
+							Don't have an account? <Link to="/signup">Sing Up</Link>
 						</div>
 					</Col>
 				</Row>

@@ -8,6 +8,7 @@ import Homepage from "./components/dashboard/Home";
 import Login from "./components/auth/Login";
 import PrivateRoute from "./components/utility/PrivateRoute";
 import NewsForm from "./components/news/NewsForm";
+import "../src/styles/search-news.css";
 
 function App() {
 	return (
