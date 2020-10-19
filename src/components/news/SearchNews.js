@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Button } from "react-bootstrap";
 
 const SearchNews = ({ searchNews }) => {
 	const [searchInput, setSearchInput] = useState("");

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import app from "../../firebase";
 import NewsItem from "./NewsItem";
-import { Button } from "react-bootstrap";
 import SearchNews from "./SearchNews";
 
 const NewsList = () => {
@@ -16,20 +15,26 @@ const NewsList = () => {
 				newsList.push({ id, ...news[id] });
 			}
 
-			console.log(newsList);
 			setNewsList(newsList);
 		});
 	}, []);
 
+	/* 	Firestore has only 3 functions for searching queries (startAt, endAt and equalTo), so it doesn't support full text search, like SQL. 
+		It requires third-party search service.  
+		Since I'm not experienced in dbs, this was the only way to "search".
+		 It allows user only to search for the first word in text, which is horrible UX. 
+	 	Apart from not using reducers from the beggining of the project this was the biggest mistake imho.
+	*/
+
 	const searchNews = (input) => {
 		const newsRef = app.database().ref("Text");
-		console.log("news ref 1", newsRef);
 
-		const searchedNews = newsRef.orderByChild("text").equalTo(input);
-		console.log("news ref 2", searchedNews);
+		const searchedNews = newsRef
+			.orderByChild("text")
+			.startAt(input)
+			.endAt(input + "\uf8ff");
 
 		searchedNews.on("value", (snapshot) => {
-			console.log("data", snapshot.val());
 			const news = snapshot.val();
 			const newsList = [];
 
@@ -37,7 +42,6 @@ const NewsList = () => {
 				newsList.push({ id, ...news[id] });
 			}
 
-			console.log("radii", newsList);
 			setNewsList(newsList);
 		});
 	};

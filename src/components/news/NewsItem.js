@@ -46,7 +46,7 @@ const News = ({ article }) => {
 							style={{ width: "50vw" }}
 						>
 							<Card.Body>
-								<Card.Header>
+								<Card.Header className="text-center">
 									<h4>{article.title}</h4>
 								</Card.Header>
 								<Card.Text className="mt-3 text-justify">
